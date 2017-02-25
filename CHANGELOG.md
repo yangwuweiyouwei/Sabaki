@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Unreleased][unreleased]
+
+**Fixed**
+
+* Fix GitHub and 'Report Issue' menu items not working
+* Fix move interpretation stuck at '3-3 point' sometimes
+* Fix showing reload file warning if the file has been removed
+
 ## [Sabaki v0.20.0][v0.20.0] (2017-02-01)
 
 **Added**
@@ -9,6 +17,7 @@ All notable changes to this project will be documented in this file.
 * Ability to change the order of variations
 * Ability to remove certain node information from the whole game or current position
 * Ability to sort games in a game container
+* Add compact and big style game tree
 
 **Changed**
 
@@ -18,6 +27,7 @@ All notable changes to this project will be documented in this file.
 **Fixed**
 
 * Sabaki uses `\r\n` as linebreaks on Windows
+* Fix 'Download' button when an update is available
 
 ## [Sabaki v0.19.3][v0.19.3] (2017-01-11)
 

@@ -64,7 +64,7 @@
   },
   "scripts": {
     "test": "mocha",
-    "build:dev": "browserify -t [ babelify --presets es2015 ] -x moment ./browser/index.js > ./browser/build.js",
-    "build:web": "browserify -t [ babelify --presets es2015 ] -x moment ./browser/index.js | uglifyjs -m -c > ./browser/build.js"
+    "dist:dev": "browserify -t [ babelify --presets es2015 ] -x moment ./browser/index.js > ./browser/build.js",
+    "dist:web": "browserify -t [ babelify --presets es2015 ] -x moment ./browser/index.js | uglifyjs -m -c > ./browser/build.js"
   }
 }

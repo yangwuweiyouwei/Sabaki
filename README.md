@@ -28,6 +28,10 @@ For more information visit the [wiki](https://github.com/yishn/Sabaki/wiki). You
 
 If you're looking for the code of the [website](http://sabaki.yichuanshen.de/), you can find it in [this repository](https://github.com/yishn/sabaki-website).
 
+## Building & Tests
+
+See [Building & Tests](https://github.com/yishn/Sabaki/wiki/Building-&-Tests/c9597d79922843be32cb3046363fd04a2ac9e91b) in the wiki.
+
 ## License
 
 This project is licensed under the [MIT license](https://github.com/yishn/Sabaki/blob/master/LICENSE.md).

@@ -100,10 +100,15 @@ let defaults = {
 }
 
 exports.load = function() {
-    return settings = defaults
+    if (localStorage.settings == null)
+        localStorage.settings = JSON.stringify(defaults)
+
+    settings = JSON.parse(localStorage.settings)
+    return exports
 }
 
 exports.save = function() {
+    localStorage.settings = JSON.stringify(settings)
     return exports
 }
 

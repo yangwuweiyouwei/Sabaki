@@ -2,6 +2,7 @@ const sgf = require('./sgf')
 const helper = require('./helper')
 
 exports.readShapes = function(filename) {
+    return require('../data/shapes.json')
 }
 
 exports.cornerMatch = function(points, target) {

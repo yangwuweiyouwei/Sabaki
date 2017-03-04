@@ -100,7 +100,7 @@ let defaults = {
 }
 
 exports.load = function() {
-    if (localStorage) {
+    if (typeof localStorage != 'undefined') {
         if (localStorage.settings == null)
             localStorage.settings = JSON.stringify(defaults)
 
@@ -113,7 +113,7 @@ exports.load = function() {
 }
 
 exports.save = function() {
-    if (localStorage) {
+    if (typeof localStorage != 'undefined') {
         localStorage.settings = JSON.stringify(settings)
     }
 

@@ -1,13 +1,12 @@
 const $ = require('./sprint')
 
 exports.buildFromTemplate = function(template) {
-    let menu = {}
     let $element = $('<ul class="popupmenu"/>')
 
-    template.forEach(item => {
+    for (let item of template) {
         if (item.type == 'separator') {
             $element.append('<li class="separator"/>')
-            return
+            continue
         }
 
         let $li = $('<li/>')
@@ -20,10 +19,11 @@ exports.buildFromTemplate = function(template) {
         if (item.type == 'copy-to-clipboard') $li.addClass('copy-to-clipboard')
         if (item.checked) $li.addClass('checked')
         $element.append($li)
-    })
+    }
 
-    menu.popup = (_, x, y) => exports.show($element, x, y)
-    return menu
+    return {
+        popup: (_, x, y) => exports.show($element, x, y)
+    }
 }
 
 exports.hide = function() {

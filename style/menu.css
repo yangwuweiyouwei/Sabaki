@@ -10,6 +10,9 @@
 .popupmenu {
         position: absolute;
         padding: 3px 0;
+        max-height: calc(100% - 6px);
+        max-width: 100%;
+        overflow: auto;
         background: rgba(0, 0, 0, .9);
         box-shadow: 0 5px 10px rgba(0, 0, 0, .5);
         color: white;

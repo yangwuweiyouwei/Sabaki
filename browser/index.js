@@ -916,7 +916,7 @@ sabaki.prepareCleanMarkup = function() {
 }
 
 sabaki.prepareClipboard = function() {
-    new Clipboard('.saveClip', {
+    new Clipboard('.copy-to-clipboard', {
         text: function(trigger) {
             return sabaki.saveFileToSgf();
         }

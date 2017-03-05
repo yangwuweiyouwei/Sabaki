@@ -1116,8 +1116,8 @@ exports.openHeaderMenu = function() {
             click: () => sabaki.saveFile()
         },
         {
-            label: 'Save to Clipboard',
-            type: 'saveClip',
+            label: 'Copy to Clipboard',
+            type: 'copy-to-clipboard',
             click: () => {}
         },
         {

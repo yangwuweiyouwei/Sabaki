@@ -17,7 +17,7 @@ exports.buildFromTemplate = function(template) {
             exports.hide()
         })
 
-        if (item.type == 'saveClip') $li.addClass('saveClip')
+        if (item.type == 'copy-to-clipboard') $li.addClass('copy-to-clipboard')
         if (item.checked) $li.addClass('checked')
         $element.append($li)
     })

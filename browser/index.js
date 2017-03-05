@@ -5,6 +5,7 @@ const remote = {getCurrentWindow: () => null}
 const ipcRenderer = {send: () => {}}
 const app = {getName: () => 'Sabaki', getVersion: () => 'web'}
 const dialog = {showMessageBox: () => {}}
+const Clipboard = require('clipboard')
 const EventEmitter = require('events')
 const Pikaday = require('pikaday')
 const Menu = require('../modules/menu')
@@ -912,6 +913,14 @@ sabaki.prepareCleanMarkup = function() {
         evt.preventDefault()
         view.closeCleanMarkup()
     })
+}
+
+sabaki.prepareClipboard = function() {
+    new Clipboard('.saveClip', {
+        text: function(trigger) {
+            return sabaki.saveFileToSgf();
+        }
+    });
 }
 
 /**
@@ -2323,6 +2332,7 @@ $(document).ready(function() {
     sabaki.prepareGameInfo()
     sabaki.preparePreferences()
     sabaki.prepareCleanMarkup()
+    sabaki.prepareClipboard()
     sabaki.newFile()
 
     view.prepareResizers()

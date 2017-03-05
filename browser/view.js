@@ -1115,6 +1115,15 @@ exports.openHeaderMenu = function() {
             label: 'Download SGF',
             click: () => sabaki.saveFile()
         },
+        {
+            label: 'Save to Clipboard',
+            type: 'saveClip',
+            click: () => {}
+        },
+        {
+            label: 'Load from Clipboard',
+            click: () => sabaki.loadFileFromSgf(window.prompt('Paste SGF here:'))
+        },
         { type: 'separator' },
         {
             label: 'Show Coordinates',

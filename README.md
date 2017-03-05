@@ -56,3 +56,5 @@ This project is licensed under the [MIT license](https://github.com/yishn/Sabaki
   ([MIT License](https://github.com/kaelzhang/node-argv-split/blob/master/LICENSE-MIT))
 * [Octicons](https://octicons.github.com/)
   ([License](https://github.com/github/octicons/blob/master/LICENSE.txt))
+* [clipboard.js](https://clipboardjs.com)
+  ([MIT License](http://zenorocha.mit-license.org/))

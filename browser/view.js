@@ -70,6 +70,15 @@ exports.setShowSiblings = function(show) {
     setting.set('view.show_siblings', show)
 }
 
+exports.getShowMoveColorization = function() {
+    return $('#goban').hasClass('movecolorization')
+}
+
+exports.getShowMoveColorization = function(show) {
+    $('#goban').toggleClass('movecolorization', show)
+    setting.set('view.show_move_colorization', show)
+}
+
 exports.getFuzzyStonePlacement = function() {
     return $('#goban').hasClass('fuzzy')
 }
@@ -867,7 +876,8 @@ exports.buildBoard = function() {
                     if (!$('#goban').data('mousedown')) return
 
                     $('#goban').data('mousedown', false)
-                    sabaki.vertexClicked(vertex, evt.button, evt.ctrlKey)
+                    let pos = [evt.clientX, evt.clientY]
+                    sabaki.vertexClicked(vertex, evt.button, evt.ctrlKey, pos)
                 })
                 .on('touchend', evt => {
                     if (!exports.getEditMode()
@@ -1153,7 +1163,7 @@ exports.openHeaderMenu = function() {
             label: '&Resign',
             click: () => sabaki.makeResign()
         },
-        { type: 'separator' },
+        {type: 'separator'},
         {
             label: 'Es&timate',
             click: () => exports.setEstimatorMode(true)
@@ -1170,7 +1180,7 @@ exports.openHeaderMenu = function() {
             label: '&Find',
             click: () => exports.setFindMode(true)
         },
-        { type: 'separator' },
+        {type: 'separator'},
         {
             label: '&Info',
             click: () => exports.showGameInfo()
@@ -1185,7 +1195,7 @@ exports.openHeaderMenu = function() {
     )
 }
 
-exports.openCommentMenu = function() {
+exports.openCommentMenu = function(position) {
     let tp = sabaki.getCurrentTreePosition()
     let node = tp[0].nodes[tp[1]]
 
@@ -1281,13 +1291,7 @@ exports.openCommentMenu = function() {
     }
 
     let menu = Menu.buildFromTemplate(template)
-    let $el = $('#properties .edit .header img')
-
-    menu.popup(
-        remote.getCurrentWindow(),
-        Math.round($el.offset().left),
-        Math.round($el.offset().top + $el.height())
-    )
+    menu.popup(remote.getCurrentWindow(), ...position)
 }
 
 exports.openEnginesMenu = function($element, callback = () => {}) {

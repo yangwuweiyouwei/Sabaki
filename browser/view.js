@@ -1141,6 +1141,11 @@ exports.openHeaderMenu = function() {
             click: () => exports.setShowCoordinates(!exports.getShowCoordinates())
         },
         {
+            label: 'Show Move Colorization',
+            checked: exports.getShowMoveColorization(),
+            click: () => exports.setShowMoveColorization(!exports.getShowMoveColorization())
+        },
+        {
             label: 'Show Next Moves',
             checked: exports.getShowNextMoves(),
             click: () => exports.setShowNextMoves(!exports.getShowNextMoves())

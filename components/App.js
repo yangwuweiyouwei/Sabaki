@@ -1,6 +1,6 @@
 const fs = require('fs')
 const EventEmitter = require('events')
-const {clipboard, remote} = require('electron')
+const {ipcRenderer, clipboard, remote} = require('electron')
 const {app, Menu} = remote
 const {h, render, options, Component} = require('preact')
 
@@ -99,6 +99,8 @@ class App extends Component {
     }
 
     componentDidMount() {
+        require('../data/ipc')
+
         // Handle file drag & drop
 
         document.body.addEventListener('dragover', evt => evt.preventDefault())
@@ -190,6 +192,10 @@ class App extends Component {
         if (key in data) {
             this.setState({[data[key]]: setting.get(key)})
         }
+
+        if (key === 'engines.list') {
+            ipcRenderer.send('build-menu')
+        }
     }
 
     // Sabaki API
@@ -250,6 +256,10 @@ class App extends Component {
         let [tree, index] = this.state.treePosition
         let board = gametree.getBoard(tree, index)
         let node = tree.nodes[index]
+
+        if (typeof vertex == 'string') {
+            vertex = board.coord2vertex(vertex)
+        }
 
         if (['play', 'autoplay'].includes(this.state.mode)) {
             if (button === 0) {
@@ -349,6 +359,11 @@ class App extends Component {
 
         let [tree, index] = this.state.treePosition
         let board = gametree.getBoard(tree, index)
+
+        if (typeof vertex == 'string') {
+            vertex = board.coord2vertex(vertex)
+        }
+
         let pass = !board.hasVertex(vertex)
         if (!pass && board.get(vertex) != 0) return
 
@@ -522,6 +537,10 @@ class App extends Component {
         let {currentPlayer, gameIndex} = this.inferredState
         let board = gametree.getBoard(tree, index)
         let node = tree.nodes[index]
+
+        if (typeof vertex == 'string') {
+            vertex = board.coord2vertex(vertex)
+        }
 
         let data = {
             cross: 'MA',

@@ -134,18 +134,23 @@
                         "action": "circletool"
                     },
                     {
-                        "label": "&Line/Arrow Tool",
+                        "label": "&Line Tool",
                         "accelerator": "CmdOrCtrl+6",
                         "action": "linetool"
                     },
                     {
-                        "label": "La&bel Tool",
+                        "label": "&Arrow Tool",
                         "accelerator": "CmdOrCtrl+7",
+                        "action": "arrowtool"
+                    },
+                    {
+                        "label": "La&bel Tool",
+                        "accelerator": "CmdOrCtrl+8",
                         "action": "labeltool"
                     },
                     {
                         "label": "&Number Tool",
-                        "accelerator": "CmdOrCtrl+8",
+                        "accelerator": "CmdOrCtrl+9",
                         "action": "numbertool"
                     }
                 ]
